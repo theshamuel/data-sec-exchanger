@@ -1,0 +1,45 @@
+linters-settings:
+  govet:
+    check-shadowing: true
+  gocognit:
+    min-complexity: 31
+
+linters:
+  disable-all: true
+  fast: false
+
+  enable:
+    - bodyclose       # Checks whether HTTP response body is closed successfully
+    - revive          # Drop-in replacement of golint.
+    - govet           # Vet examines Go source code and reports suspicious constructs, such as Printf calls whose arguments do not align with the format string
+    - gochecknoinits  # Checks that no init functions are present in Go code
+    - exportloopref   # Checks for pointers to enclosing loop variables
+    - gocritic        # Provides diagnostics that check for bugs, performance and style issues. Extensible without recompilation through dynamic rules. Dynamic rules are written declaratively with AST patterns, filters, report message and optional suggestion.
+    - stylecheck      # Stylecheck is a replacement for golint
+    - unconvert       # Remove unnecessary type conversions
+    - structcheck     # Finds unused struct fields
+    - errcheck        # Errcheck is a program for checking for unchecked errors in go programs. These unchecked errors can be critical bugs in some cases
+    - gosec           # Inspects source code for security problems (gas)
+    - gocyclo         # Computes and checks the cyclomatic complexity of functions
+    - gocognit        # Computes and checks the cognitive complexity of functions
+    - dupl            # Tool for code clone detection
+    - misspell        # Finds commonly misspelled English words in comments
+    - unparam         # Reports unused function parameters
+    - gosimple        # Linter for Go source code that specializes in simplifying a code
+    - deadcode        # Finds unused code
+    - typecheck       # Like the front-end of a Go compiler, parses and type-checks Go code
+    - ineffassign     # Detects when assignments to existing variables are not used
+    - varcheck        # Finds unused global variables and constants
+    - nakedret        # Finds naked returns in functions greater than a specified function length
+    - prealloc        # Finds slice declarations that could potentially be preallocated
+    - staticcheck     # Staticcheck is a go vet on steroids, applying a ton of static analysis checks
+
+run:
+  concurrency: 8
+  tests: false
+
+output:
+  format: tab
+
+service:
+  golangci-lint-version: 1.24.x
